@@ -11,9 +11,11 @@
         <header class="pageHeader">
             <h1 id="pageTitle">Testr</h1>
         </header>
-        <p class="inputPrompt">Choose a color: <input class="color" id="topColorPicker" type="color" value="#000000"></p>
-        <p class="inputPrompt" id="datePickerPrompt">Choose a date: <input class="blockInput datePicker" id="topDatePicker" type="date"></p>
-        <button class="blockInput" id="triggerSnapshotButton" type="button">Trigger Snapshot</button>
+        <form id="otherPageForm">
+            <p class="inputPrompt">Choose a color: <input class="color" id="topColorPicker" type="color" value="#000000"></p>
+            <p class="inputPrompt" id="datePickerPrompt">Choose a date: <input class="blockInput datePicker" id="topDatePicker" type="date"></p>
+            <input class="blockInput" id="triggerSnapshotButton" type="submit" value="Trigger Snapshot">
+        </form>
         <main class="mainArticleHolder">
             <article id="mainArticle">
 
