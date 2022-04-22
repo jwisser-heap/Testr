@@ -23,10 +23,10 @@
             <h1 id="pageTitle">Testr</h1>
         </header>
         <!-- A comment. -->
-        <h1 id="lessChild">Test Heading</h1>
+        <h1 id="lessChild" name="Test Heading" title="Test Heading">Test Heading</h1>
 		<form id="mainPageForm">
             <input class="blockInput slider" id="topSlider" type="range" min="0" max="100">
-            <input class="blockInput textField" id="topTextField" type="text">
+            <input class="blockInput textField" id="topTextField" type="text" placeholder="SomePlaceholder">
             <select class="blockInput dropdown" id="topDropdown">
                 <option value="">-- Please select a value --</option>
                 <option value="Value 1">Value 1</option>
@@ -37,10 +37,10 @@
             </select>
             <input class="blockInput" id="triggerSnapshotButton" type="submit" value="Trigger Snapshot">
         </form>
-        <main class="mainArticleHolder">
+        <main class="mainArticleHolder" data-heap-redact-attributes='title,name,placeholder'>
             <article id="mainArticle">
 
-                <h2 id="mainArticleTitle" data-heap-redact-text='true'>Reasons To Build Your Own Testr Page</h2>
+                <h2 id="mainArticleTitle" data-heap-redact-text='true' name="[N] Reasons to Build Your Own Testr Page" title="[T] Reasons to Build Your Own Testr Page">Reasons To Build Your Own Testr Page</h2>
 
                 <ol id="reasonsForTestrPage">
                     <li class="reasonsListItem">Reason 1</li>
