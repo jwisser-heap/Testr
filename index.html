@@ -9,10 +9,10 @@
                     if (props.pageview_properties.query && props.pageview_properties.query.indexOf('email') != -1) {
                             props.pageview_properties.query = "REDACTED_QUERY";
                     }
-                    if (props.session_properties.query && props.pageview_properties.query.indexOf('email') != -1) {
+                    if (props.session_properties.query && props.session_properties.query.indexOf('email') != -1) {
                         props.session_properties.query = "REDACTED_QUERY";
                         }
-                    if (props.event_properties.query && props.pageview_properties.query.indexOf('email') != -1) {
+                    if (props.event_properties.query && props.event_properties.query.indexOf('email') != -1) {
                         props.event_properties.query = "REDACTED_QUERY";
                         }}
                     return props;
