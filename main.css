@@ -86,12 +86,13 @@ a {
 
 body {
   font-family: GT America, Helvetica, Arial, sans-serif;
-  color: #100841;
+  color: #fff;
+  background-color: #100841;
 }
 
 header {
-  background-color: #31D891;
-  color: #000000;
+  background-color: #fff;
+  color: #000;
 }
 
 header h1 {
@@ -101,10 +102,11 @@ header h1 {
 main {margin: 50px;}
 
 a.visibleLink {
-  color: #FF003D;
+  color: #31D891;
 }
 
 footer {
+  background-color: #fff;
   color: #31715F;
   padding: 10px;
 }
@@ -114,11 +116,11 @@ footer p {
 }
 
 .htmlEntitySymbol {
-  color: #FF003D;
+  color: #31D891;
 }
 
 #copyrightNotice {
-  color: #FF003D;
+  color: #31D891;
 }
 
 footer ul {
