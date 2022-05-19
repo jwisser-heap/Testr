@@ -39,7 +39,7 @@ body {
   line-height: 1.5;
 }
 
-/* A elements that don't have a class get default styles */
+/* Link elements that don't have a class get default styles */
 a:not([class]) {
   text-decoration-skip-ink: auto;
 }
@@ -86,11 +86,11 @@ a {
 
 body {
   font-family: GT America, Helvetica, Arial, sans-serif;
-  color: #24054a;
+  color: #100841;
 }
 
 header {
-  background-color: #24054a;
+  background-color: #31D891;
   color: #ffffff;
 }
 
@@ -101,11 +101,11 @@ header h1 {
 main {margin: 50px;}
 
 a.visibleLink {
-  color: #ee485e;
+  color: #FF003D;
 }
 
 footer {
-  color: #555555;
+  color: #31715F;
   padding: 10px;
 }
 
@@ -114,11 +114,11 @@ footer p {
 }
 
 .htmlEntitySymbol {
-  color: #ee485e;
+  color: #FF003D;
 }
 
 #copyrightNotice {
-  color: #ee485e;
+  color: #FF003D;
 }
 
 footer ul {
