@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <title>Testr</title>
+        <link href="main.css" rel="stylesheet">
+        <script type="text/javascript">
+              window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=document.createElement("script");r.type="text/javascript",r.async=!0,r.src="https://cdn.heapanalytics.com/js/heap-"+e+".js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(r,a);for(var n=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","resetIdentity","removeEventProperty","setEventProperties","track","unsetEventProperty"],o=0;o<p.length;o++)heap[p[o]]=n(p[o])};
+                heap.load("368830506", {
+                  rewrite: function(props) {{
+                    if (props.pageview_properties.query && props.pageview_properties.query.indexOf('email') != -1) {
+                            props.pageview_properties.query = "REDACTED_QUERY";
+                    }
+                    if (props.session_properties.query && props.session_properties.query.indexOf('email') != -1) {
+                        props.session_properties.query = "REDACTED_QUERY";
+                        }
+                    if (props.event_properties.query && props.event_properties.query.indexOf('email') != -1) {
+                        props.event_properties.query = "REDACTED_QUERY";
+                        }}
+                    return props;
+                  }
+                });
+            </script>
+            <!-- Google Tag Manager -->
+            <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-WVL4XDN');</script>
+            <!-- End Google Tag Manager -->
+    </head>
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVL4XDN"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        <header class="pageHeader">
+            <h1 id="pageTitle">Testr</h1>
+        </header>
+        <!-- A comment. -->
+        <h1 id="lessChild" name="Test Heading" title="Test Heading">Test Heading</h1>
+		<form id="mainPageForm">
+            <input class="blockInput slider" id="topSlider" type="range" min="0" max="100">
+            <input class="blockInput textField" id="topTextField" type="search" name="q" placeholder="SomePlaceholder">
+            <select class="blockInput dropdown" id="topDropdown">
+                <option value="">-- Please select a value --</option>
+                <option value="Value 1">Value 1</option>
+                <option value="Value 2">Value 2</option>
+                <option value="Value 3">Value 3</option>
+                <option value="Value 4">Value 4</option>
+                <option value="Value 5">Value 5</option>
+            </select>
+            <input class="blockInput" id="triggerSnapshotButton" type="submit" value="Trigger Snapshot">
+        </form>
+        <main class="mainArticleHolder">
+            <article id="mainArticle" name="[N] Reasons to Build Your Own Testr Page" title="[T] Reasons to Build Your Own Testr Page">
+
+                <h2 id="mainArticleTitle" data-test-id="test-id" data-test-tab="test-tab">Reasons To Build Your Own Testr Page</h2>
+
+                <ol id="reasonsForTestrPage" data-test-id="reasonsForTestrPage">
+                    <li class="reasonsListItem">You can test setting up a <a href="https://jwisser-heap.github.io/Testr/heap-dude.crx" download class="visibleLink">direct heap-dude download</a>. Sadly, it doesn't currently work.</li>
+                    <li class="reasonsListItem">Reason 2</li>
+                    <li class="reasonsListItem">Reason 3</li>
+                    <li class="reasonsListItem">Reason 4</li>
+                </ol>
+
+                <p class="mainArticleText">This is just some basic text. Click through to the other page <a href="otherpage.html" class="visibleLink">here.</a></p>
+
+            </article>
+            <div class="heap required" data-cert-requirement="true"><span class="omg-a-totally-new-class" id="not-like-other-divs" data-new-attribute-1="true" data-new-attribute-2="false">This is some text with a <a href="https://heap.io" class="visibleLink">link to Heap</a>.</span></div>
+        </main>
+        
+        <div class="sidebar"></div>
+        <footer class="pageFooter">
+            <p id="copyrightDisclaimer"><span class="htmlEntitySymbol">&COPY;</span> <span id="copyrightNotice">2021 Jonas Wisser.</span> Don't be a jerk.</p>
+            <address>
+                <ul id="addressItems">
+                    <li class="singularAddressItem"><a href="mailto:jonas.wisser@heap.io">jonas.wisser@heap.io</a></li>
+                    <li class="singularAddressItem"><a href="tel:+15555555555">(555) 555-5555</a></li>
+                </ul>
+            </address>
+        </footer>
+    </body>
+</html>
