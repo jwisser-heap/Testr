@@ -5,7 +5,8 @@
         <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://cdn.heapanalytics.com https://heapanalytics.com 'unsafe-inline' 'unsafe-eval'; img-src https://heapanalytics.com; style-src https://heapanalytics.com 'unsafe-inline'; connect-src https://heapanalytics.com https://*.auryc.com; font-src https://heapanalytics.com; worker-src blob:;">
         <script async type="text/javascript" src="heap-loader.js"></script>
     </head>
-    <body heap-ignore="true">
+    <body>
+        <div class="contentHolder" heap-ignore="true">
         <header class="pageHeader">
             <h1 id="pageTitle">Testr</h1>
         </header>
@@ -24,7 +25,7 @@
             </select>
             <input class="blockInput" id="triggerSnapshotButton" type="submit" value="Trigger Snapshot">
         </form>
-        <main class="mainArticleHolder" heap-ignore="true">
+        <main class="mainArticleHolder">
             <article id="mainArticle" name="[N] Reasons to Build Your Own Testr Page" title="[T] Reasons to Build Your Own Testr Page">
 
                 <h2 id="mainArticleTitle" data-test-id="test-id" data-test-tab="test-tab">Reasons To Build Your Own Testr Page</h2>
@@ -52,5 +53,6 @@
                 </ul>
             </address>
         </footer>
+        </div>
     </body>
 </html>
