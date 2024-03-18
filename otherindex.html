@@ -26,7 +26,9 @@
         }
         
         function onPlayerStateChange(newState) { 
-            if (newState.data == 1) { 
+            if (newState.data == -1) { 
+            heap.track('Video Not Yet Started'); 
+            else if (newState.data == 1) { 
                 heap.track('Video Playing'); 
             } else if (newState.data == 0) { 
                 heap.track('Video Finished'); 
