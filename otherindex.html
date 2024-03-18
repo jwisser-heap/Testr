@@ -4,6 +4,36 @@
         <link href="main.css" rel="stylesheet">
         <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://sdk.us.heap-api.com https://cdn.us.heap-api.com https://heapanalytics.com https://*.heapanalytics.com *.cloudfront.net 'unsafe-eval' 'unsafe-inline'; img-src https://heapanalytics.com; style-src 'self' https://heapanalytics.com 'unsafe-inline'; connect-src *.delighted.com https://c.us.heap-api.com https://heapanalytics.com https://*.auryc.com; font-src https://heapanalytics.com; worker-src blob:;">
         <script async type="text/javascript" src="heap-loader-5.js"></script>
+        <script>var tag = document.createElement('script'); 
+        tag.src = "https://www.youtube.com/iframe_api"; 
+        var firstScriptTag = document.getElementsByTagName('script')[0]; 
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag); 
+        var player; 
+        function onYouTubeIframeAPIReady() { 
+            player = new YT.Player('player', { 
+                width: '640', 
+                height: '390', 
+                videoId: 'stmZAThUl64', //replace VIDEO_ID with the videoId from Youtube 
+                events: { 
+                    'onPlayerReady': onPlayerReady, 
+                    'onStateChange': onPlayerStateChange 
+                } 
+            }); 
+        }
+        
+        function onPlayerReady(event) { 
+            console.log('player ready'); 
+        }
+        
+        function onPlayerStateChange(newState) { 
+            if (newState.data == 1) { 
+                heap.track('Video Playing'); 
+            } else if (newState.data == 0) { 
+                heap.track('Video Finished'); 
+            } else if (newState.data == 2) { 
+                heap.track('Video Paused'); 
+            } 
+        }</script>
     </head>
     <body>
         <div class="contentHolder">
@@ -52,7 +82,9 @@
                     <li class="reasonsListItem">Reason 4</li>
                 </ol>
 
-                <p class="mainArticleText">This is just some basic text. Click through to the other page <a href="otherpage.html" class="visibleLink">here.</a></p>
+                <p class="mainArticleText">Below is a YouTube embed. At least, there should be.</p>
+                
+                <div id="player"></div>
 
             </article>
             <div class="heap required" data-cert-requirement="true"><span class="omg-a-totally-new-class" id="not-like-other-divs" data-new-attribute-1="true" data-new-attribute-2="false">This is some text with a <a href="https://heap.io" class="visibleLink">link to Heap</a>.</span></div>
