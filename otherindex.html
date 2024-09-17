@@ -3,7 +3,65 @@
         <title>Testr</title>
         <link href="main.css" rel="stylesheet">
         <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://sdk.us.heap-api.com https://cdn.us.heap-api.com https://heapanalytics.com https://*.heapanalytics.com *.cloudfront.net https://www.youtube.com 'unsafe-inline'; img-src https://heapanalytics.com; style-src 'self' https://heapanalytics.com 'unsafe-inline'; connect-src *.delighted.com https://c.us.heap-api.com https://heapanalytics.com https://*.auryc.com; font-src https://heapanalytics.com; worker-src blob:;">
-        <script async type="text/javascript" src="heap-loader-5.js"></script>
+        
+        <!-- BEGIN HEAP JS 5 TAG -->
+        <script type="text/javascript">   
+          window.heapReadyCb=window.heapReadyCb||[],window.heap=window.heap||[],heap.load=function(e,t){window.heap.envId=e,window.heap.clientConfig=t=t||{},window.heap.clientConfig.shouldFetchServerConfig=!1;var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src="https://cdn.us.heap-api.com/config/"+e+"/heap_config.js";var r=document.getElementsByTagName("script")[0];r.parentNode.insertBefore(a,r);var n=["init","startTracking","stopTracking","track","resetIdentity","identify","getSessionId","getUserId","getIdentity","addUserProperties","addEventProperties","removeEventProperty","clearEventProperties","addAccountProperties","addAdapter","addTransformer","addTransformerFn","onReady","addPageviewProperties","removePageviewProperty","clearPageviewProperties","trackPageview"],i=function(e){return function(){var t=Array.prototype.slice.call(arguments,0);window.heapReadyCb.push({name:e,fn:function(){heap[e]&&heap[e].apply(heap,t)}})}};for(var p=0;p<n.length;p++)heap[n[p]]=i(n[p])};
+          heap.load("368830506"); 
+        </script>
+        <!-- END HEAP JS 5 TAG -->
+        
+        <!-- BEGIN HOTJAR TAG -->
+        <script>
+            (function(h,o,t,j,a,r){
+                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                h._hjSettings={hjid:5138654,hjsv:6};
+                a=o.getElementsByTagName('head')[0];
+                r=o.createElement('script');r.async=1;
+                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                a.appendChild(r);
+            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+        </script>
+        <!-- END HOTJAR TAG -->
+        
+        <!-- BEGIN CONTENTSQUARE TAG -->
+        <script type="text/javascript">
+        (function () {
+          window._uxa = window._uxa || [];
+          if (typeof CS_CONF === 'undefined') {
+            window._uxa.push(['setPath', window.location.pathname + window.location.hash.replace('#', '?__')]);
+            var mt = document.createElement("script");
+            mt.type = "text/javascript";
+            mt.async = true;
+            mt.src = "//t.contentsquare.net/uxa/YOUR_TAG_ID.js";
+            document.getElementsByTagName("head")[0].appendChild(mt);
+          } else {
+            window._uxa.push(['trackPageview', window.location.pathname + window.location.hash.replace('#', '?__')]);
+          }
+        })();
+        </script>
+        <!-- END CONTENTSQUARE TAG -->
+        
+        <!-- OLD HEAP JS 4 SCRIPT; INACTIVE -->
+        <!-- <script type="text/javascript">
+              window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=document.createElement("script");r.type="text/javascript",r.async=!0,r.src="https://cdn.heapanalytics.com/js/heap-"+e+".js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(r,a);for(var n=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","resetIdentity","removeEventProperty","setEventProperties","track","unsetEventProperty"],o=0;o<p.length;o++)heap[p[o]]=n(p[o])};
+                heap.load("368830506", {
+                  rewrite: function(props) {{
+                    if (props.pageview_properties.query && props.pageview_properties.query.indexOf('email') != -1) {
+                            props.pageview_properties.query = "REDACTED_QUERY";
+                    }
+                    if (props.session_properties.query && props.session_properties.query.indexOf('email') != -1) {
+                        props.session_properties.query = "REDACTED_QUERY";
+                        }
+                    if (props.event_properties.query && props.event_properties.query.indexOf('email') != -1) {
+                        props.event_properties.query = "REDACTED_QUERY";
+                        }}
+                    return props;
+                  }
+                });
+            </script> -->
+            <!-- END OLD HEAP SCRIPT -->
+        
         <script>var tag = document.createElement('script'); 
         tag.src = "https://www.youtube.com/iframe_api"; 
         var firstScriptTag = document.getElementsByTagName('script')[0]; 
