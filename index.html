@@ -12,16 +12,6 @@
 
     <!-- BEGIN HEAP JS 5 TAG -->
     <script type="text/javascript">
-      function executeOnReady() {
-        // This function will be executed when Heap is initialized.
-        // You can place your code  here.
-        console.log("Heap is now initialized.");
-        heap.track("Heap Loading Complete");
-        // Example: Make an API call
-        // api.doSomething();
-      }
-      heap.onReady(executeOnReady);
-
       (window.heapReadyCb = window.heapReadyCb || []),
         (window.heap = window.heap || []),
         (heap.load = function (e, t) {
@@ -73,6 +63,16 @@
           for (var p = 0; p < n.length; p++) heap[n[p]] = i(n[p]);
         });
       heap.load("368830506");
+
+      function executeOnReady() {
+        // This function will be executed when Heap is initialized.
+        // You can place your code  here.
+        console.log("Heap is now initialized.");
+        heap.track("Heap Loading Complete");
+        // Example: Make an API call
+        // api.doSomething();
+      }
+      heap.onReady(executeOnReady);
     </script>
     <!-- END HEAP JS 5 TAG -->
 
