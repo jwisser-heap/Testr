@@ -69,68 +69,6 @@
     </script>
     <!-- END HEAP JS 5 TAG -->
 
-    <!-- BEGIN HOTJAR TAG -->
-    <script>
-      (function (h, o, t, j, a, r) {
-        h.hj =
-          h.hj ||
-          function () {
-            (h.hj.q = h.hj.q || []).push(arguments);
-          };
-        h._hjSettings = { hjid: 5138654, hjsv: 6 };
-        a = o.getElementsByTagName("head")[0];
-        r = o.createElement("script");
-        r.async = 1;
-        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
-        a.appendChild(r);
-      })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
-    </script>
-    <!-- END HOTJAR TAG -->
-
-    <!-- BEGIN CONTENTSQUARE TAG -->
-    <script type="text/javascript">
-      (function () {
-        window._uxa = window._uxa || [];
-        if (typeof CS_CONF === "undefined") {
-          window._uxa.push([
-            "setPath",
-            window.location.pathname + window.location.hash.replace("#", "?__"),
-          ]);
-          var mt = document.createElement("script");
-          mt.type = "text/javascript";
-          mt.async = true;
-          mt.src = "https://t.contentsquare.net/uxa/2c5142b15f133.js";
-          document.getElementsByTagName("head")[0].appendChild(mt);
-        } else {
-          window._uxa.push([
-            "trackPageview",
-            window.location.pathname + window.location.hash.replace("#", "?__"),
-          ]);
-        }
-      })();
-    </script>
-    <!-- END CONTENTSQUARE TAG -->
-
-    <!-- OLD HEAP JS 4 SCRIPT; INACTIVE -->
-    <!-- <script type="text/javascript">
-              window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=document.createElement("script");r.type="text/javascript",r.async=!0,r.src="https://cdn.heapanalytics.com/js/heap-"+e+".js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(r,a);for(var n=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","resetIdentity","removeEventProperty","setEventProperties","track","unsetEventProperty"],o=0;o<p.length;o++)heap[p[o]]=n(p[o])};
-                heap.load("368830506", {
-                  rewrite: function(props) {{
-                    if (props.pageview_properties.query && props.pageview_properties.query.indexOf('email') != -1) {
-                            props.pageview_properties.query = "REDACTED_QUERY";
-                    }
-                    if (props.session_properties.query && props.session_properties.query.indexOf('email') != -1) {
-                        props.session_properties.query = "REDACTED_QUERY";
-                        }
-                    if (props.event_properties.query && props.event_properties.query.indexOf('email') != -1) {
-                        props.event_properties.query = "REDACTED_QUERY";
-                        }}
-                    return props;
-                  }
-                });
-            </script> -->
-    <!-- END OLD HEAP SCRIPT -->
-
     <script>
       var tag = document.createElement("script");
       tag.src = "https://www.youtube.com/iframe_api";
