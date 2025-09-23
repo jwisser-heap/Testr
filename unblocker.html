@@ -1,0 +1,110 @@
+<html>
+  <head>
+    <title>Unblocker</title>
+    <link href="main.css" rel="stylesheet" />
+
+    <!-- BEGIN CSP -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="script-src 'self' https://sdk.us.heap-api.com https://cdn.us.heap-api.com https://heapanalytics.com https://*.heapanalytics.com *.cloudfront.net https://*.contentsquare.net app.contentsquare.com https://*.hotjar.com 'unsafe-inline' 'unsafe-eval'; img-src https://heapanalytics.com https://*.hotjar.com https://*.contentsquare.net; style-src 'self' https://heapanalytics.com https://*.hotjar.com 'unsafe-inline'; connect-src https://c.us.heap-api.com https://heapanalytics.com https://*.auryc.com https://*.hotjar.com https://*.hotjar.io wss://*.hotjar.com https://*.contentsquare.net; font-src  https://heapanalytics.com https://*.hotjar.com; child-src https://*.contentsquare.net blob:; worker-src blob:;"
+    />
+    <!-- END CSP -->
+
+    <!-- BEGIN HEAP JS 5 TAG -->
+    <script type="text/javascript">
+      (window.heapReadyCb = window.heapReadyCb || []),
+        (window.heap = window.heap || []),
+        (heap.load = function (e, t) {
+          (window.heap.envId = e),
+            (window.heap.clientConfig = t = t || {}),
+            (window.heap.clientConfig.shouldFetchServerConfig = !1);
+          var a = document.createElement("script");
+          (a.type = "text/javascript"),
+            (a.async = !0),
+            (a.src =
+              "https://cdn.us.heap-api.com/config/" + e + "/heap_config.js");
+          var r = document.getElementsByTagName("script")[0];
+          r.parentNode.insertBefore(a, r);
+          var n = [
+              "init",
+              "startTracking",
+              "stopTracking",
+              "track",
+              "resetIdentity",
+              "identify",
+              "identifyHashed",
+              "getSessionId",
+              "getUserId",
+              "getIdentity",
+              "addUserProperties",
+              "addEventProperties",
+              "removeEventProperty",
+              "clearEventProperties",
+              "addAccountProperties",
+              "addAdapter",
+              "addTransformer",
+              "addTransformerFn",
+              "onReady",
+              "addPageviewProperties",
+              "removePageviewProperty",
+              "clearPageviewProperties",
+              "trackPageview",
+            ],
+            i = function (e) {
+              return function () {
+                var t = Array.prototype.slice.call(arguments, 0);
+                window.heapReadyCb.push({
+                  name: e,
+                  fn: function () {
+                    heap[e] && heap[e].apply(heap, t);
+                  },
+                });
+              };
+            };
+          for (var p = 0; p < n.length; p++) heap[n[p]] = i(n[p]);
+        });
+      heap.load("368830506");
+
+      function executeOnReady() {
+        // This function will be executed when Heap is initialized.
+        // You can place your code  here.
+        console.log("Heap is now initialized.");
+        heap.track("Heap Loading Complete");
+        // Example: Make an API call
+        // api.doSomething();
+      }
+      heap.onReady(executeOnReady);
+    </script>
+    <!-- END HEAP JS 5 TAG -->
+  </head>
+  <body id="mainBody">
+    <header class="pageHeader">
+      <h1 id="pageTitle">Unblocker</h1>
+    </header>
+    <!-- A comment. -->
+
+    <main id="unblocker-main">
+      <p class="unblocker-paragraph">
+        This page serves to unblock Raw Events for mobile-only environments.
+      </p>
+    </main>
+
+    <div class="sidebar"></div>
+    <footer class="pageFooter">
+      <p id="copyrightDisclaimer">
+        <span class="htmlEntitySymbol">&COPY;</span>
+        <span id="copyrightNotice">2025 Jonas Wisser.</span> Don't be a jerk.
+      </p>
+      <address>
+        <ul id="addressItems">
+          <li class="singularAddressItem">
+            <a href="mailto:jonas.wisser@heap.io">jonas.wisser@heap.io</a>
+          </li>
+          <li class="singularAddressItem">
+            <a href="tel:+15555555555">(555) 555-5555</a>
+          </li>
+        </ul>
+      </address>
+    </footer>
+  </body>
+</html>
