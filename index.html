@@ -129,7 +129,7 @@
           }
         };
 
-        return messages.map(updateTitleProperty);
+        return messages.map(updatePageviewTitleProperty);
       };
 
       // Create transformer to update pageview title property with current title value
@@ -149,7 +149,7 @@
           }
         };
 
-        return messages.map(updateTitleProperty);
+        return messages.map(updateInteractionTitleProperty);
       };
 
       // We could leave the pipeline off the interaction transformer since 'general'
