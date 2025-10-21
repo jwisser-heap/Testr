@@ -140,7 +140,7 @@
           try {
             // Check if message is an interaction before updating
             if (message.data.event.interaction) {
-              message.data.event.pageview_info.title = document.title;
+              message.data.pageview_info.title = document.title;
             }
 
             return message;
