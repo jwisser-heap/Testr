@@ -114,7 +114,7 @@
       // https://www.youtube.com/shorts/f0huI_wZ6UE
 
       // Create transformer to update pageview title property with current title value
-      var pageviewTransformerName = "updateTitlePropertyTransformer";
+      var pageviewTransformerName = "updatePageviewTitlePropertyTransformer";
       var pageviewTransformerFn = function (messages) {
         var updatePageviewTitleProperty = function (message) {
           try {
@@ -133,7 +133,8 @@
       };
 
       // Create transformer to update pageview title property with current title value
-      var interactionTransformerName = "updateTitlePropertyTransformer";
+      var interactionTransformerName =
+        "updateInteractionTitlePropertyTransformer";
       var interactionTransformerFn = function (messages) {
         var updateInteractionTitleProperty = function (message) {
           try {
