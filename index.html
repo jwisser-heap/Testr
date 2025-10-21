@@ -69,7 +69,7 @@
       var adapterName = "waitForTitleUpdateAdapter";
 
       // Helper that resolves when the title is updated
-      function executeAdapterFn() {
+      function watchForTitleChange() {
         return new Promise(function (resolve) {
           // Observe DOM changes until title is updated
 
@@ -90,7 +90,7 @@
       }
 
       var adapterFn = function () {
-        return executeAdapterFn().then(function () {
+        return watchForTitleChange().then(function () {
           heap.markAdapterAsResolved(adapterName);
         });
       };
@@ -108,10 +108,15 @@
 
       heap.addAdapter(adapter, config);
 
-      // Create transformer to update title property with current title value
-      var transformerName = "updateTitlePropertyTransformer";
-      var transformerFn = function (messages) {
-        var updateTitleProperty = function (message) {
+      // It would be nice if we could do this next part with one transformer,
+      // but we want to modify both pageview and interaction messages so we need
+      // two transformers.
+      // https://www.youtube.com/shorts/f0huI_wZ6UE
+
+      // Create transformer to update pageview title property with current title value
+      var pageviewTransformerName = "updateTitlePropertyTransformer";
+      var pageviewTransformerFn = function (messages) {
+        var updatePageviewTitleProperty = function (message) {
           try {
             // Check if message is a pageview before updating
             if (message.type === "meta_pageview") {
@@ -127,10 +132,37 @@
         return messages.map(updateTitleProperty);
       };
 
-      // Using metadata pipeline since we are modifying pageview messages
-      var pipeline = "metadata";
+      // Create transformer to update pageview title property with current title value
+      var interactionTransformerName = "updateTitlePropertyTransformer";
+      var interactionTransformerFn = function (messages) {
+        var updateInteractionTitleProperty = function (message) {
+          try {
+            // Check if message is an interaction before updating
+            if (message.data.event.interaction) {
+              message.data.event.pageview_info.title = document.title;
+            }
 
-      heap.addTransformerFn(transformerName, transformerFn, pipeline);
+            return message;
+          } catch (e) {
+            return message;
+          }
+        };
+
+        return messages.map(updateTitleProperty);
+      };
+
+      // We could leave the pipeline off the interaction transformer since 'general'
+      // is the default, but it rarely hurts to be explicit.
+      heap.addTransformerFn(
+        pageviewTransformerName,
+        pageviewTransformerFn,
+        "metadata"
+      );
+      heap.addTransformerFn(
+        interactionTransformerName,
+        interactionTransformerFn,
+        "general"
+      );
     </script>
     <!-- END HEAP JS 5 TAG -->
   </head>
