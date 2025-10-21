@@ -65,11 +65,14 @@
         });
       heap.load("368830506");
 
-      var adapterName = "myCustomAdapter";
+      // Create adapter to watch for title update
+      var adapterName = "waitForTitleUpdateAdapter";
 
-      // Helper that resolves when the element exists
+      // Helper that resolves when the title is updated
       function executeAdapterFn() {
         return new Promise(function (resolve) {
+          // Observe DOM changes until title is updated
+
           var target = document.querySelector("title");
 
           // create an observer instance
@@ -92,6 +95,7 @@
         });
       };
 
+      // Defaults to 5 seconds of blocking
       var adapter = {
         name: adapterName,
         fn: adapterFn,
@@ -103,6 +107,30 @@
       };
 
       heap.addAdapter(adapter, config);
+
+      // Create transformer to update title property with current title value
+      var transformerName = "updateTitlePropertyTransformer";
+      var transformerFn = function (messages) {
+        var updateTitleProperty = function (message) {
+          try {
+            // Check if message is a pageview before updating
+            if (message.type === "meta_pageview") {
+              message.data.pageview_info.title = document.title;
+            }
+
+            return message;
+          } catch (e) {
+            return message;
+          }
+        };
+
+        return messages.map(updateTitleProperty);
+      };
+
+      // Using metadata pipeline since we are modifying pageview messages
+      var pipeline = "metadata";
+
+      heap.addTransformerFn(transformerName, transformerFn, pipeline);
     </script>
     <!-- END HEAP JS 5 TAG -->
   </head>
