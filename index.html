@@ -65,20 +65,24 @@
         });
       heap.load("368830506");
 
-      var adapterName = "waitForTitleUpdateAdapter";
+      var adapterName = "myCustomAdapter";
 
       // Helper that resolves when the element exists
       function executeAdapterFn() {
         return new Promise(function (resolve) {
-          // Observe DOM changes until title is updated
-          new MutationObserver(function (mutations) {
+          var target = document.querySelector("title");
+
+          // create an observer instance
+          var observer = new MutationObserver(function (mutations) {
             observer.disconnect();
-            resolve();
-          }).observe(document.querySelector("title"), {
-            subtree: true,
-            characterData: true,
-            childList: true,
+            resolve;
           });
+
+          // configuration of the observer:
+          var config = { subtree: true, characterData: true, childList: true };
+
+          // pass in the target node, as well as the observer options
+          observer.observe(target, config);
         });
       }
 
