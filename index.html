@@ -11,10 +11,95 @@
     <!-- END CSP -->
 
     <!-- BEGIN HEAP JS 5 TAG -->
-<script type="text/javascript">   
-  window.heapReadyCb=window.heapReadyCb||[],window.heap=window.heap||[],heap.load=function(e,t){window.heap.envId=e,window.heap.clientConfig=t=t||{},window.heap.clientConfig.shouldFetchServerConfig=!1;var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src="https://cdn.us.heap-api.com/config/"+e+"/heap_config.js";var r=document.getElementsByTagName("script")[0];r.parentNode.insertBefore(a,r);var n=["init","startTracking","stopTracking","track","resetIdentity","identify","identifyHashed","getSessionId","getUserId","getIdentity","addUserProperties","addEventProperties","removeEventProperty","clearEventProperties","addAccountProperties","addAdapter","addTransformer","addTransformerFn","onReady","addPageviewProperties","removePageviewProperty","clearPageviewProperties","trackPageview"],i=function(e){return function(){var t=Array.prototype.slice.call(arguments,0);window.heapReadyCb.push({name:e,fn:function(){heap[e]&&heap[e].apply(heap,t)}})}};for(var p=0;p<n.length;p++)heap[n[p]]=i(n[p])};
-  heap.load("368830506"); 
-</script>
+    <script type="text/javascript">
+      (window.heapReadyCb = window.heapReadyCb || []),
+        (window.heap = window.heap || []),
+        (heap.load = function (e, t) {
+          (window.heap.envId = e),
+            (window.heap.clientConfig = t = t || {}),
+            (window.heap.clientConfig.shouldFetchServerConfig = !1);
+          var a = document.createElement("script");
+          (a.type = "text/javascript"),
+            (a.async = !0),
+            (a.src =
+              "https://cdn.us.heap-api.com/config/" + e + "/heap_config.js");
+          var r = document.getElementsByTagName("script")[0];
+          r.parentNode.insertBefore(a, r);
+          var n = [
+              "init",
+              "startTracking",
+              "stopTracking",
+              "track",
+              "resetIdentity",
+              "identify",
+              "identifyHashed",
+              "getSessionId",
+              "getUserId",
+              "getIdentity",
+              "addUserProperties",
+              "addEventProperties",
+              "removeEventProperty",
+              "clearEventProperties",
+              "addAccountProperties",
+              "addAdapter",
+              "addTransformer",
+              "addTransformerFn",
+              "onReady",
+              "addPageviewProperties",
+              "removePageviewProperty",
+              "clearPageviewProperties",
+              "trackPageview",
+            ],
+            i = function (e) {
+              return function () {
+                var t = Array.prototype.slice.call(arguments, 0);
+                window.heapReadyCb.push({
+                  name: e,
+                  fn: function () {
+                    heap[e] && heap[e].apply(heap, t);
+                  },
+                });
+              };
+            };
+          for (var p = 0; p < n.length; p++) heap[n[p]] = i(n[p]);
+        });
+      heap.load("368830506");
+
+      var adapterName = "waitForTitleUpdateAdapter";
+
+      // Helper that resolves when the element exists
+      function executeAdapterFn() {
+        return new Promise(function (resolve) {
+          // Observe DOM changes until title is updated
+          new MutationObserver(function (mutations) {
+            observer.disconnect();
+            resolve();
+          }).observe(document.querySelector("title"), {
+            subtree: true,
+            characterData: true,
+            childList: true,
+          });
+        });
+      }
+
+      var adapterFn = function () {
+        return executeAdapterFn().then(function () {
+          heap.markAdapterAsResolved(adapterName);
+        });
+      };
+
+      var adapter = {
+        name: adapterName,
+        fn: adapterFn,
+      };
+
+      var config = {
+        isBlocking: true,
+        blockDurationInMs: 5000,
+      };
+
+      heap.addAdapter(adapter, config);
+    </script>
     <!-- END HEAP JS 5 TAG -->
   </head>
   <body data-testid="network-card-4" id="mainBody">
